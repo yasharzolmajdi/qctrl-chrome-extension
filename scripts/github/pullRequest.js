@@ -24,19 +24,21 @@ function addAppButton() {
     "css-truncate-target"
   );
 
-  for (let i = 0; i < branchNameList.length; i += 1) {
-    const branchNameFull = branchNameList[i];
-    const branchNameFullSplit = branchNameFull.innerHTML.split("/");
-    const branchName = branchNameFullSplit[branchNameFullSplit.length - 1];
+  if (!branchNameList || !branchNameList.length) {
+    return;
+  }
 
-    const branchNameMatches = branchName.match(appNameSelector);
-    if (branchNameMatches && branchNameMatches.length > 0) {
-      createButton(
-        "Open <strong>APP</strong>",
-        `https://${branchName.toLocaleLowerCase()}.app.q-ctrl.com/`,
-        "#680CE9"
-      );
-    }
+  const branchNameFull = branchNameList[branchNameList.length - 1];
+  const branchNameFullSplit = branchNameFull.innerHTML.split("/");
+  const branchName = branchNameFullSplit[branchNameFullSplit.length - 1];
+
+  const branchNameMatches = branchName.match(appNameSelector);
+  if (branchNameMatches && branchNameMatches.length > 0) {
+    createButton(
+      "Open <strong>APP</strong>",
+      `https://${branchName.toLocaleLowerCase()}.app.q-ctrl.com/`,
+      "#680CE9"
+    );
   }
 }
 
