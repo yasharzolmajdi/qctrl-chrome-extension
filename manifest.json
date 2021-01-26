@@ -1,0 +1,28 @@
+{
+  "name": "Q-Ctrl",
+  "version": "0.1",
+  "description": "easy access to all q-ctrl related platforms",
+  "browser_action": {
+    "default_title": "Q-Ctrl",
+    "default_popup": "browserAction/index.html",
+    "default_icon": {
+      "16": "images/qctrl-logo16.png",
+      "32": "images/qctrl-logo32.png",
+      "48": "images/qctrl-logo48.png",
+      "128": "images/qctrl-logo128.png"
+    }
+  },
+  "icons": {
+    "16": "images/qctrl-logo16.png",
+    "32": "images/qctrl-logo32.png",
+    "48": "images/qctrl-logo48.png",
+    "128": "images/qctrl-logo128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/qctrl/app2/pull/*"],
+      "js": ["scripts/github/pullRequest.js"]
+    }
+  ],
+  "manifest_version": 3
+}
